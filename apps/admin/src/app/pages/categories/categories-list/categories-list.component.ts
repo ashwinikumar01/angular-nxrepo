@@ -4,7 +4,7 @@ import { CategoriesService, Category } from '@bluebits/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
-    selector: 'bluebits-categories-list',
+    selector: 'admin-categories-list',
     templateUrl: './categories-list.component.html',
     styles: []
 })

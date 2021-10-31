@@ -37,7 +37,13 @@
                                     [ngClass]="'pi-' + category.icon"
                                 ></i>
                             </td>
-                            <td>{{ category.color }}</td>
+                            <td>
+                              <i
+                               class="pi pi-circle-on"
+                               style="font-size: 2rem"
+                               [ngStyle]="{ color: category.color }"
+                              ></i>
+                             </td>
                             <td>
                                 <p-button
                                     (click)="deleteCategory(category.id)"
