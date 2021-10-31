@@ -7,14 +7,14 @@ import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
 
 @Component({
-    selector: 'bluebits-categories-form',
+    selector: 'admin-categories-form',
     templateUrl: './categories-form.component.html'
 })
 export class CategoriesFormComponent implements OnInit {
     form: any = FormGroup;
-    isSubmitted: boolean = false;
-    editmode: boolean = false;
-    currentCategoryID: string = '';
+    isSubmitted = false;
+    editmode = false;
+    currentCategoryID = '';
 
     constructor(
         private route: ActivatedRoute,
@@ -55,19 +55,19 @@ export class CategoriesFormComponent implements OnInit {
 
     private _updateCategory(category: Category) {
         this.categoriesService.updateCategory(this.currentCategoryID, category).subscribe(
-            (response) => {
+            (category: Category) => {
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Success',
-                    detail: 'Category is Updated!'
+                    detail: `Category ${category.name} is Updated!`
                 });
                 timer(1000)
                     .toPromise()
-                    .then((done) => {
+                    .then(() => {
                         this.location.back();
                     });
             },
-            (error) => {
+            () => {
                 this.messageService.add({
                     severity: 'error',
                     summary: 'Error',
@@ -79,19 +79,19 @@ export class CategoriesFormComponent implements OnInit {
 
     private _addCategory(category: Category) {
         this.categoriesService.createCategory(category).subscribe(
-            (response) => {
+            (category: Category) => {
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Success',
-                    detail: 'Category is Created'
+                    detail: `Category ${category.name} is created!`
                 });
                 timer(1000)
                     .toPromise()
-                    .then((done) => {
+                    .then(() => {
                         this.location.back();
                     });
             },
-            (error) => {
+            () => {
                 this.messageService.add({
                     severity: 'error',
                     summary: 'Error',
@@ -113,6 +113,10 @@ export class CategoriesFormComponent implements OnInit {
                 });
             }
         });
+    }
+
+    onCancel() {
+        this.location.back();
     }
 
     get categoryForm() {
