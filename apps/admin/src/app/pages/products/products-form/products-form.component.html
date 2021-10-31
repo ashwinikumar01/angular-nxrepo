@@ -78,6 +78,7 @@
                                 [filter]="true"
                                 filterBy="name"
                                 optionLabel="name"
+                                optionValue="id"
                                 formControlName="category"
                                 [showClear]="true"
                                 placeholder="Select a Category"
@@ -113,6 +114,21 @@
                                 formControlName="richDescription"
                                 [style]="{ height: '320px' }"
                             ></p-editor>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <label for="name">Main Image</label>
+                            <input
+                                type="file"
+                                class="p-inputtext"
+                                accept="image/*"
+                                (change)="onImageUpload($event)"
+                            />
+                            <small *ngIf="productForm.image.invalid && isSubmitted" class="p-error"
+                                >Image is required</small
+                            >
+                            <div class="col-2 mt-2 pl-0">
+                                <img style="width: 100%;" [src]="imageDisplay" alt="" />
+                            </div>
                         </div>
                     </div>
                 </form>
