@@ -11,10 +11,10 @@ import { timer } from 'rxjs';
     templateUrl: './categories-form.component.html'
 })
 export class CategoriesFormComponent implements OnInit {
-    form: any = FormGroup;
+    form: FormGroup;
     isSubmitted = false;
     editmode = false;
-    currentCategoryID = '';
+    currentCategoryID: string;
 
     constructor(
         private route: ActivatedRoute,

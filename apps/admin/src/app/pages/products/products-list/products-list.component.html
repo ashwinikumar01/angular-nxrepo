@@ -18,7 +18,16 @@
         </div>
         <div class="grid">
             <div class="col-12">
-                <p-table [value]="products" styleClass="p-datatable-gridlines">
+                <p-table
+                    [paginator]="true"
+                    [rows]="10"
+                    [showCurrentPageReport]="true"
+                    responsiveLayout="scroll"
+                    [value]="products"
+                    styleClass="p-datatable-gridlines"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    [rowsPerPageOptions]="[10, 25, 50]"
+                >
                     <ng-template pTemplate="header">
                         <tr>
                             <th pSortableColumn="name">
@@ -28,13 +37,14 @@
                             <th pSortableColumn="price">
                                 Price<p-sortIcon field="price"></p-sortIcon>
                             </th>
-                            <th pSortableColumn="stock">
-                                Stock<p-sortIcon field="stock"></p-sortIcon>
+                            <th pSortableColumn="countInStock">
+                                Stock
+                                <p-sortIcon field="countInStock"></p-sortIcon>
                             </th>
-                            <th pSortableColumn="category">
+                            <th pSortableColumn="category.name">
                                 Category<p-sortIcon field="category"></p-sortIcon>
                             </th>
-                            <th pSortableColumn="created">
+                            <th pSortableColumn="dateCreated">
                                 Created at<p-sortIcon field="created"></p-sortIcon>
                             </th>
                             <th></th>
@@ -43,13 +53,21 @@
                     <ng-template pTemplate="body" let-product>
                         <tr>
                             <td>{{ product.name }}</td>
-                            <td><img [src]="product.image" style="width:100%" /></td>
+                            <td>
+                                <p-image
+                                    [src]="product.image"
+                                    alt="Image"
+                                    width="100"
+                                    [preview]="true"
+                                >
+                                </p-image>
+                            </td>
                             <td>{{ product.price }}</td>
                             <td>{{ product.countInStock }}</td>
                             <td>{{ product.category?.name }}</td>
                             <td>{{ product.dateCreated | date: 'short' }}</td>
                             <td>
-                                <!-- <p-button
+                                <p-button
                                     (click)="deleteProduct(product.id)"
                                     styleClass="p-button-danger mr-2"
                                     icon="pi pi-trash"
@@ -58,7 +76,7 @@
                                     (click)="getProduct(product.id)"
                                     styleClass="p-button-success"
                                     icon="pi pi-pencil"
-                                ></p-button> -->
+                                ></p-button>
                             </td>
                         </tr>
                     </ng-template>
