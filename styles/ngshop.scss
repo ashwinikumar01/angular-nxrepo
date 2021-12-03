@@ -1,23 +1,25 @@
-//Base
-@import '../styles/base/colors.scss';
-@import '../styles/base/fonts.scss';
-@import '../styles/base/mixins.scss';
+// Base Config
+
+@import './base/colors.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
+@import './base/configuration.scss';
 
 //Libraries
 @import '~primeicons/primeicons.css';
-@import '~primeng/resources/themes/nova/theme.css';
+@import '~primeng/resources/themes/saga-blue/theme.css';
 @import '~primeng/resources/primeng.min.css';
-@import '../styles/base/configuration.scss';
-@import '~primeflex/primeflex.css';
-
-// @import '~bootstrap/scss/bootstrap.scss';
-//Pages
-@import '../styles/apps/shop/pages/home-page.scss';
-@import '../styles/apps/shop/pages/products-list-page.scss';
+@import '~primeflex/primeflex.scss';
 
 //Shared
-@import './apps/shop/pages/shared/header.scss';
-@import './apps/shop/pages/shared/footer.scss';
+@import './apps/shop/shared/header.scss';
+@import './apps/shop/shared/footer.scss';
+
+//Pages
+@import './apps/shop/pages/home-page.scss';
+@import './apps/shop/pages/products-list-page.scss';
 
 //Libs
-@import './libs/ui/ui.scss';
+@import './libs/products/products.scss';
+@import './libs/orders/orders.scss';
+@import './libs/users/users.scss';

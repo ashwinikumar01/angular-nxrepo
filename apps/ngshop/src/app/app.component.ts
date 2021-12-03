@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'ngshop-root',
-    templateUrl: './app.component.html'
+  selector: 'bluebits-root',
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
-    title = 'ngshop';
+  title = 'ngshop';
 }

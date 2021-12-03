@@ -1,21 +1,19 @@
-//Base
+// Base Config
 @import '~normalize.css/normalize.css';
-@import '../styles/base/colors.scss';
-@import '../styles/base/fonts.scss';
-@import '../styles/base/mixins.scss';
+@import './base/colors.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
+@import './base/configuration.scss';
 
 //Libraries
 @import '~primeicons/primeicons.css';
-@import '~primeng/resources/themes/nova/theme.css';
+@import '~primeng/resources/themes/saga-blue/theme.css';
 @import '~primeng/resources/primeng.min.css';
-@import '../styles/base/configuration.scss';
-@import '~primeflex/primeflex.css';
-
-// @import '~bootstrap/scss/bootstrap.scss';
-//Pages
+@import '~primeflex/primeflex.scss';
 
 //Shared
-@import '../styles/apps/admin/shell.scss';
+@import './apps/admin/shell.scss';
+@import './apps/admin/dashboard.scss';
 
 //Libs
-@import './libs/ui/ui.scss';
+@import './libs/users/users.scss';

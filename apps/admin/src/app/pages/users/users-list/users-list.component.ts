@@ -1,64 +1,79 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User, UsersService } from '@bluebits/users';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { User, UsersService } from '@bluebits/users';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
-    selector: 'admin-list',
-    templateUrl: './users-list.component.html'
+  selector: 'admin-users-list',
+  templateUrl: './users-list.component.html',
+  styles: []
 })
 export class UsersListComponent implements OnInit {
-    users: User[] = [];
+  users: User[] = [];
+  endsubs$: Subject<any> = new Subject();
 
-    constructor(
-        private usersService: UsersService,
-        private messageService: MessageService,
-        private confirmationService: ConfirmationService,
-        private router: Router
-    ) {}
+  constructor(
+    private usersService: UsersService,
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService,
+    private router: Router
+  ) {}
 
-    ngOnInit(): void {
-        this._getUsers();
-    }
+  ngOnInit(): void {
+    this._getUsers();
+  }
 
-    deleteUser(userId: string) {
-        this.confirmationService.confirm({
-            message: 'Do you want to Delete this User?',
-            header: 'Delete User',
-            icon: 'pi pi-exclamation-triangle',
-            accept: () => {
-                this.usersService.deleteUser(userId).subscribe(
-                    () => {
-                        this._getUsers();
-                        this.messageService.add({
-                            severity: 'success',
-                            summary: 'Success',
-                            detail: 'User is deleted!'
-                        });
-                    },
-                    () => {
-                        this.messageService.add({
-                            severity: 'error',
-                            summary: 'Error',
-                            detail: 'User is not deleted!'
-                        });
-                    }
-                );
+  ngOnDestroy() {
+    this.endsubs$.next();
+    this.endsubs$.complete();
+  }
+
+  deleteUser(userId: string) {
+    this.confirmationService.confirm({
+      message: 'Do you want to Delete this User?',
+      header: 'Delete User',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.usersService
+          .deleteUser(userId)
+          .pipe(takeUntil(this.endsubs$))
+          .subscribe(
+            () => {
+              this._getUsers();
+              this.messageService.add({
+                severity: 'success',
+                summary: 'Success',
+                detail: 'User is deleted!'
+              });
+            },
+            () => {
+              this.messageService.add({
+                severity: 'error',
+                summary: 'Error',
+                detail: 'User is not deleted!'
+              });
             }
-        });
-    }
+          );
+      }
+    });
+  }
 
-    updateUser(userid: string) {
-        this.router.navigateByUrl(`users/form/${userid}`);
-    }
+  updateUser(userid: string) {
+    this.router.navigateByUrl(`users/form/${userid}`);
+  }
 
-    getCountryName(countryKey: string) {
-        if (countryKey) return this.usersService.getCountry(countryKey);
-    }
+  getCountryName(countryKey: string) {
+    if (countryKey) return this.usersService.getCountry(countryKey);
+  }
 
-    private _getUsers() {
-        this.usersService.getUsers().subscribe((users) => {
-            this.users = users;
-        });
-    }
+  private _getUsers() {
+    this.usersService
+      .getUsers()
+      .pipe(takeUntil(this.endsubs$))
+      .subscribe((users) => {
+        this.users = users;
+      });
+  }
 }

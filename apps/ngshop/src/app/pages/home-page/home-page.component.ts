@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'ngshop-home-page',
-    templateUrl: './home-page.component.html'
+  selector: 'bluebits-home-page',
+  templateUrl: './home-page.component.html',
 })
-export class HomePageComponent {
-    constructor() {}
+export class HomePageComponent implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {}
 }

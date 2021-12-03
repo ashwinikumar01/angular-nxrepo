@@ -1,3 +1,3 @@
 export function ui(): string {
-    return 'ui';
+  return 'ui';
 }
