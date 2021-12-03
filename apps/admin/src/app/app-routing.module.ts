@@ -67,11 +67,6 @@ const routes: Routes = [
         component: OrdersDetailComponent
       }
     ]
-  },
-  {
-    path: '**',
-    redirectTo: 'login',
-    pathMatch: 'full'
   }
 ];
 

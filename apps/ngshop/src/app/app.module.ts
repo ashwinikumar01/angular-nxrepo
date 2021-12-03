@@ -4,35 +4,29 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ProductListComponent } from './pages/product-list/product-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ProductsModule } from '@bluebits/products';
-
+import { UiModule } from '@bluebits/ui';
 import { AccordionModule } from 'primeng/accordion';
+import { NavComponent } from './shared/nav/nav.component';
+import { HttpClientModule } from '@angular/common/http';
 
-const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'products', component: ProductListComponent },
-];
+const routes: Routes = [{ path: '', component: HomePageComponent }];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomePageComponent,
-    ProductListComponent,
-    HeaderComponent,
-    FooterComponent,
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes),
-    ProductsModule,
-    AccordionModule,
-    BrowserAnimationsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(routes),
+        HttpClientModule,
+        ProductsModule,
+        AccordionModule,
+        BrowserAnimationsModule,
+        UiModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

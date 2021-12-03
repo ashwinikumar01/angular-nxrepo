@@ -1,7 +1,7 @@
 <p-toast></p-toast>
 <div class="admin-page" *ngIf="order">
   <p-card [header]="'View Order'" subheader="You can edit order status here">
-    <p-fieldset legend="Order Details" styleClass="mb-4" [toggleable]="true">
+    <fieldset legend="Order Details" styleClass="mb-4" [toggleable]="true">
       <div class="grid">
         <div class="col-4">
           <h5>Order Id</h5>
@@ -30,8 +30,8 @@
           <p>{{ order.totalPrice | currency }}</p>
         </div>
       </div>
-    </p-fieldset>
-    <p-fieldset legend="Order Items" styleClass="mb-4" [toggleable]="true">
+    </fieldset>
+    <fieldset legend="Order Items" styleClass="mb-4" [toggleable]="true">
       <div class="grid mb-5">
         <div class="col-2 p-text-bold">Name</div>
         <div class="col-2 p-text-bold">Brand</div>
@@ -53,8 +53,8 @@
 
         <div class="col-2 p-text-bold">{{ order.totalPrice | currency }}</div>
       </div>
-    </p-fieldset>
-    <p-fieldset legend="Order Address" styleClass="mb-4" [toggleable]="true">
+    </fieldset>
+    <fieldset legend="Order Address" styleClass="mb-4" [toggleable]="true">
       <div class="grid">
         <div class="col-4">
           <h5>Order Address</h5>
@@ -76,6 +76,6 @@
           <p>{{ order.phone }}</p>
         </div>
       </div>
-    </p-fieldset>
+    </fieldset>
   </p-card>
 </div>

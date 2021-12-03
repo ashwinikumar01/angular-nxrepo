@@ -7,23 +7,23 @@ import { User } from '../models/user';
 import { LocalstorageService } from './localstorage.service';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class AuthService {
-    apiURLUsers = environment.apiUrl + 'users';
+  apiURLUsers = environment.apiUrl + 'users';
 
-    constructor(
-        private http: HttpClient,
-        private token: LocalstorageService,
-        private router: Router
-    ) {}
+  constructor(
+    private http: HttpClient,
+    private token: LocalstorageService,
+    private router: Router
+  ) {}
 
-    login(email: string, password: string): Observable<User> {
-        return this.http.post<User>(`${this.apiURLUsers}/login`, { email, password });
-    }
+  login(email: string, password: string): Observable<User> {
+    return this.http.post<User>(`${this.apiURLUsers}/login`, { email, password });
+  }
 
-    logout() {
-        this.token.removeToken();
-        this.router.navigate(['/login']);
-    }
+  logout() {
+    this.token.removeToken();
+    this.router.navigate(['/login']);
+  }
 }
