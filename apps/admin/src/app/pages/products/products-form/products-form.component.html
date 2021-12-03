@@ -17,7 +17,7 @@
             ></p-button>
             <p-button
               styleClass="p-button-secondary"
-              label="Cancle"
+              label="Cancel"
               icon="pi pi-arrow-circle-left"
               (click)="onCancle()"
             ></p-button>
@@ -29,21 +29,21 @@
       <div class="col-12">
         <form [formGroup]="form">
           <div class="p-fluid formgrid grid">
-            <div class="p-field col">
+            <div class="field col">
               <label for="name">Name</label>
               <input formControlName="name" id="name" type="text" pInputText />
               <small *ngIf="productForm.name.invalid && isSubmitted" class="p-error"
                 >Name is required</small
               >
             </div>
-            <div class="p-field col">
+            <div class="field col">
               <label for="brand">Brand</label>
               <input formControlName="brand" id="brand" type="text" pInputText />
               <small *ngIf="productForm.brand.invalid && isSubmitted" class="p-error"
                 >Brand is required</small
               >
             </div>
-            <div class="p-field col">
+            <div class="field col">
               <label for="price">Price</label><br />
               <p-inputNumber formControlName="price" mode="decimal" [useGrouping]="false">
               </p-inputNumber>
@@ -53,7 +53,7 @@
             </div>
           </div>
           <div class="p-fluid formgrid grid">
-            <div class="p-field col-4">
+            <div class="field col-4">
               <label for="countInStock">countInStock</label><br />
               <p-inputNumber formControlName="countInStock" mode="decimal" [useGrouping]="false">
               </p-inputNumber>
@@ -61,7 +61,7 @@
                 >Count in stock is required</small
               >
             </div>
-            <div class="p-field col-4">
+            <div class="field col-4">
               <label for="category">category</label><br />
               <p-dropdown
                 [options]="catagories"
@@ -78,11 +78,11 @@
                 >Category is required</small
               >
             </div>
-            <div class="p-field col-4">
+            <div class="field col-4">
               <label for="isFeatured">Is Featured</label><br />
               <p-inputSwitch formControlName="isFeatured"></p-inputSwitch>
             </div>
-            <div class="p-field col-12">
+            <div class="field col-12">
               <label for="description">Description</label><br />
               <textarea
                 pInputTextarea
@@ -94,11 +94,11 @@
                 >Description is required</small
               >
             </div>
-            <div class="p-field col-12">
+            <div class="field col-12">
               <label for="richDescription">Product Details</label><br />
               <p-editor formControlName="richDescription" [style]="{ height: '320px' }"></p-editor>
             </div>
-            <div class="p-field col-12">
+            <div class="field col-12">
               <label for="name">Main Image</label>
               <input
                 type="file"
@@ -109,7 +109,7 @@
               <small *ngIf="productForm.image.invalid && isSubmitted" class="p-error"
                 >Image is required</small
               >
-              <div class="col-2 mt-2 p-pl-0">
+              <div class="col-2 mt-2 pl-0">
                 <img style="width: 100%" [src]="imageDisplay" alt="" />
               </div>
             </div>
