@@ -33,12 +33,12 @@
     </fieldset>
     <fieldset legend="Order Items" styleClass="mb-4" [toggleable]="true">
       <div class="grid mb-5">
-        <div class="col-2 p-text-bold">Name</div>
-        <div class="col-2 p-text-bold">Brand</div>
-        <div class="col-2 p-text-bold">Category</div>
-        <div class="col-2 p-text-bold">Price</div>
-        <div class="col-2 p-text-bold">Quantity</div>
-        <div class="col-2 p-text-bold">Subtotal</div>
+        <div class="col-2 font-semibold">Name</div>
+        <div class="col-2 font-semibold">Brand</div>
+        <div class="col-2 font-semibold">Category</div>
+        <div class="col-2 font-semibold">Price</div>
+        <div class="col-2 font-semibold">Quantity</div>
+        <div class="col-2 font-semibold">Subtotal</div>
       </div>
       <div class="grid mb-5" *ngFor="let orderItem of order.orderItems">
         <div class="col-2">{{ orderItem.product.name }}</div>
@@ -49,9 +49,9 @@
         <div class="col-2">{{ orderItem.product.price * orderItem.quantity | currency }}</div>
       </div>
       <div class="grid" style="color: green">
-        <div class="col-2 p-offset-8 p-text-bold">Total Price</div>
+        <div class="col-2 p-offset-8 font-semibold">Total Price</div>
 
-        <div class="col-2 p-text-bold">{{ order.totalPrice | currency }}</div>
+        <div class="col-2 font-semibold">{{ order.totalPrice | currency }}</div>
       </div>
     </fieldset>
     <fieldset legend="Order Address" styleClass="mb-4" [toggleable]="true">

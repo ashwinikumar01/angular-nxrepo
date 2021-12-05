@@ -12,6 +12,7 @@ import { UiModule } from '@bluebits/ui';
 import { AccordionModule } from 'primeng/accordion';
 import { NavComponent } from './shared/nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { OrdersModule } from '@bluebits/orders';
 
 const routes: Routes = [{ path: '', component: HomePageComponent }];
 
@@ -24,7 +25,8 @@ const routes: Routes = [{ path: '', component: HomePageComponent }];
         ProductsModule,
         AccordionModule,
         BrowserAnimationsModule,
-        UiModule
+        UiModule,
+        OrdersModule
     ],
     providers: [],
     bootstrap: [AppComponent]
