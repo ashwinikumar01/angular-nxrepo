@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CartItem, CartService } from '@bluebits/orders';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/internal/operators/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 import { Product } from '../../models/product';
 import { ProductsService } from '../../services/products.service';
 
