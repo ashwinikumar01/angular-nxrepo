@@ -3,12 +3,10 @@ import { Cart, CartItem } from '../models/cart';
 
 export const CART_KEY = 'cart';
 
-@Injectable({
-    providedIn: 'root'
-})
-export class CartService {
-    constructor() {}
+@Injectable({ providedIn: 'root' })
 
+export class CartService {
+  
     initCartLocalStorage() {
         const initialCart = {
             items: []
