@@ -4,14 +4,12 @@ import { Cart, CartItem } from '../models/cart';
 
 export const CART_KEY = 'cart';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
+
 export class CartService {
+
     cart$: BehaviorSubject<Cart> = new BehaviorSubject(this.getCart());
-
-    constructor() {}
-
+  
     initCartLocalStorage() {
         const cart: Cart = this.getCart();
         if (!cart) {
