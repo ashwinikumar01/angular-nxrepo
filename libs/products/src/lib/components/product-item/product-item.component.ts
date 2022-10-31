@@ -14,7 +14,7 @@ export class ProductItemComponent implements OnInit {
 
     ngOnInit() {}
 
-    addProductToCart(id?: string) {
+    addProductToCart() {
         const cartItem: CartItem = {
             productId: this.product.id,
             quantity: 1
